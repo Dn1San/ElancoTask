@@ -9,19 +9,28 @@ async function fetchRawData(){
         const data = await response.json();
         console.log(data);
         for (let index = 0; index < data.length; index++) {
-            document.write(data[index].ConsumedQuantity + "<br>");
-            document.write(data[index].Cost + "<br>");
-            document.write(data[index].Date + "<br>");
-            document.write(data[index].InstanceId + "<br>");
-            document.write(data[index].Location + "<br>");
-            document.write(data[index].MeterCategory + "<br>");
-            document.write(data[index].ResourceGroup + "<br>");
-            document.write(data[index].ResourceLocation + "<br>");
-            document.write(data[index].ServiceName + "<br>");
-            for (let index0 = 0; index0 < data[index].Tags.length; index0++) {
-                document.write(data[index].Tags[index0] + "<br>");
-            }
-            document.write(data[index].UnitOfMeasure + "<br><br>");
+            const element = document.getElementById("div1");
+            const consumedQuantity = data[index].ConsumedQuantity;
+            const cost = data[index].Cost;
+            const date = data[index].Date;
+            const instanceId = data[index].InstanceId;
+            const location = data[index].Location;
+            const meterCategory = data[index].MeterCategory;
+            const resourceGroup = data[index].ResourceGroup;
+            const resourceLocation = data[index].ResourceLocation; 
+            const serviceName = data[index].ServiceName;
+            const unitOfService = data[index].UnitOfMeasure;
+            element.insertAdjacentHTML("beforeend", `<div>Consumed Quantity: ${consumedQuantity}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Cost: ${cost}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Date: ${date}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Instance ID: ${instanceId}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Location: ${location}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Meter Category: ${meterCategory}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Resource Group: ${resourceGroup}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Resource Location: ${resourceLocation}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Service Name: ${serviceName}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Unit Of Service: ${unitOfService}</div>`);
+            element.insertAdjacentHTML("beforeend", `<br>`);
         }
 
     }catch(error){
@@ -41,19 +50,31 @@ async function fetchApplicationData(){
         const data = await response.json();
         console.log(data);
         for (let index = 0; index < data.length; index++) {
-            document.write(data[index].ConsumedQuantity + "<br>");
-            document.write(data[index].Cost + "<br>");
-            document.write(data[index].Date + "<br>");
-            document.write(data[index].InstanceId + "<br>");
-            document.write(data[index].Location + "<br>");
-            document.write(data[index].MeterCategory + "<br>");
-            document.write(data[index].ResourceGroup + "<br>");
-            document.write(data[index].ResourceLocation + "<br>");
-            document.write(data[index].ServiceName + "<br>");
-            for (let index0 = 0; index0 < data[index].Tags.length; index0++) {
-                document.write(data[index].Tags[index0] + "<br>");
-            }
-            document.write(data[index].UnitOfMeasure + "<br><br>");
+            const element = document.getElementById("div2");
+            const consumedQuantity = data[index].ConsumedQuantity;
+            const cost = data[index].Cost;
+            const date = data[index].Date;
+            const instanceId = data[index].InstanceId;
+            const location = data[index].Location;
+            const meterCategory = data[index].MeterCategory;
+            const resourceGroup = data[index].ResourceGroup;
+            const resourceLocation = data[index].ResourceLocation; 
+            const serviceName = data[index].ServiceName;
+            const unitOfService = data[index].UnitOfMeasure;
+            element.insertAdjacentHTML("beforeend", `<div>Consumed Quantity: ${consumedQuantity}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Cost: ${cost}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Date: ${date}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Instance ID: ${instanceId}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Location: ${location}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Meter Category: ${meterCategory}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Resource Group: ${resourceGroup}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Resource Location: ${resourceLocation}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Service Name: ${serviceName}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Unit Of Service: ${unitOfService}</div>`);
+            element.insertAdjacentHTML("beforeend", `<br>`);
+            //for (let i = 0; i < data[index].Tags.length; i++) {
+            //    
+            //}
         }
 
     }catch(error){
@@ -72,7 +93,11 @@ async function fetchApplications(){
         const data = await response.json();
         
         for (let index = 0; index < data.length; index++) {
-            document.write(data[index] + "<br>");
+            const para = document.createElement("p");
+            const node = document.createTextNode(data[index]);
+            const element = document.getElementById("div1");
+            para.appendChild(node);
+            element.appendChild(para);
         }
     }catch(error){
         console.error(error);
@@ -91,19 +116,28 @@ async function fetchResourceData(){
         const data = await response.json();
         console.log(data);
         for (let index = 0; index < data.length; index++) {
-            document.write(data[index].ConsumedQuantity + "<br>");
-            document.write(data[index].Cost + "<br>");
-            document.write(data[index].Date + "<br>");
-            document.write(data[index].InstanceId + "<br>");
-            document.write(data[index].Location + "<br>");
-            document.write(data[index].MeterCategory + "<br>");
-            document.write(data[index].ResourceGroup + "<br>");
-            document.write(data[index].ResourceLocation + "<br>");
-            document.write(data[index].ServiceName + "<br>");
-            for (let index0 = 0; index0 < data[index].Tags.length; index0++) {
-                document.write(data[index].Tags[index0] + "<br>");
-            }
-            document.write(data[index].UnitOfMeasure + "<br><br>");
+            const element = document.getElementById("div2");
+            const consumedQuantity = data[index].ConsumedQuantity;
+            const cost = data[index].Cost;
+            const date = data[index].Date;
+            const instanceId = data[index].InstanceId;
+            const location = data[index].Location;
+            const meterCategory = data[index].MeterCategory;
+            const resourceGroup = data[index].ResourceGroup;
+            const resourceLocation = data[index].ResourceLocation; 
+            const serviceName = data[index].ServiceName;
+            const unitOfService = data[index].UnitOfMeasure;
+            element.insertAdjacentHTML("beforeend", `<div>Consumed Quantity: ${consumedQuantity}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Cost: ${cost}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Date: ${date}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Instance ID: ${instanceId}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Location: ${location}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Meter Category: ${meterCategory}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Resource Group: ${resourceGroup}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Resource Location: ${resourceLocation}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Service Name: ${serviceName}</div>`);
+            element.insertAdjacentHTML("beforeend", `<div>Unit Of Service: ${unitOfService}</div>`);
+            element.insertAdjacentHTML("beforeend", `<br>`);
         }
 
     }catch(error){
@@ -122,7 +156,11 @@ async function fetchResources(){
         const data = await response.json();
         
         for (let index = 0; index < data.length; index++) {
-            document.write(data[index] + "<br>");
+            const para = document.createElement("p");
+            const node = document.createTextNode(data[index]);
+            const element = document.getElementById("div1");
+            para.appendChild(node);
+            element.appendChild(para);
         }
     }catch(error){
         console.error(error);
