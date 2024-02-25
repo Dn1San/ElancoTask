@@ -4,12 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elanco Task</title>
+    <link rel="stylesheet" type="text/css" href="css/mobile.css"/>
+    <link rel="stylesheet" type="text/css" href="css/desktop.css" media="only screen and (min-width : 720px)"/>
     <script src="javascript/index.js"></script>
-    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <header>
+        <div id="logo">
+            <img src="images\logo.png" alt="Logo">
+            <img class="burger" src="images\whiteMenu.svg" alt="Menu">
+        </div>
+        <div class="burger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="cloud.html">Cloud</a></li>
+            </ul> 
+        </nav>
+    </header>
     <button onclick="fetchApplications()">Show All Applications</button><br><br>
     <button onclick="fetchResources()">Show All Resources</button><br><br>
+    <button onclick="fetchRawData()">Show All Data</button><br><br>
     <p></p>
     <input type="text" id="applicationName" placeholder="Enter Application Name">
     <button onclick="fetchApplicationData()">Fetch Application</button><br><br>
