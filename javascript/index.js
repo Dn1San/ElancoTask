@@ -135,3 +135,12 @@ function output(index,data){
     element.insertAdjacentHTML("beforeend", `<div>Unit Of Service: ${unitOfService}</div>`);
     element.insertAdjacentHTML("beforeend", `<br>`);
 }
+
+$(document).ready(function(){
+    //start
+    //Burger Menu
+    $(".burger").on("click", function (){
+        $("nav").slideToggle("fast")
+    })
+    //end
+})
