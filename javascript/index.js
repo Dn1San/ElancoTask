@@ -1,46 +1,49 @@
+//Retrives data on everything
 async function fetchRawData(){
     try{
-        const response = await fetch(`https://engineering-task.elancoapps.com/api/raw`);
+        const response = await fetch(`https://engineering-task.elancoapps.com/api/raw`);//Retrives data from api
 
         if(!response.ok){
-            throw new Error("Could not fetch raw data!");
+            throw new Error("Could not fetch raw data!"); // Catches Error
         }
 
         const data = await response.json();
         for (let index = 0; index < data.length; index++) {
-            output(index, data);
+            output(index, data);// Outputs data from api
         }
 
     }catch(error){
-        console.error(error);
+        console.error(error); //Console logs any errors
     }
 }
 
+//Retives data on specific application or resource
 async function fetchData(action){
     try{
         const name = document.getElementById("name").value;
-        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);
+        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);//Retrives data from api
 
         if(!response.ok){
-            throw new Error("Could not fetch application!");
+            throw new Error("Could not fetch application!");// Catches Error
         }
 
         const data = await response.json();
         for (let index = 0; index < data.length; index++) {
-            output(index, data);
+            output(index, data);// Outputs data from api
         }
 
     }catch(error){
-        console.error(error);
+        console.error(error);//Console logs any errors
     }
 }
 
+//Retrives the list of names for applications or resources 
 async function fetchNames(action){
     try{
-        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}`);
+        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}`);//Retrives data from api
 
         if(!response.ok){
-            throw new Error("Could not fetch applications!");
+            throw new Error("Could not fetch applications!");// Catches Error
         }
 
         const data = await response.json();
@@ -49,68 +52,72 @@ async function fetchNames(action){
             const para = document.createElement("p");
             const node = document.createTextNode(data[index]);
             const element = document.getElementById("div1");
-            para.appendChild(node);
-            element.appendChild(para);
+            para.appendChild(node);// Use of append child as test.
+            element.appendChild(para);// Outputs data list from api
         }
     }catch(error){
-        console.error(error);
+        console.error(error);//Console logs any errors
     }
 }
 
+// Function to remove data on Screen
 
 
+//Function Retrives highest cost
 async function getHighestCost(action){
     try{
         const name = document.getElementById("name").value;
-        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);
+        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);//Retrives data from api
 
         if(!response.ok){
-            throw new Error("Could not fetch resources!");
+            throw new Error("Could not fetch resources!");// Catches Error
         }
 
         const data = await response.json();
         let currentPrice = 0;
         let highestCostIndex = 0;
         
-        for (let index = 0; index < data.length; index++) {
+        for (let index = 0; index < data.length; index++) { // Loops through data to find highest cost
             if (data[index].Cost > currentPrice){
                 currentPrice = data[index].Cost;
                 highestCostIndex = index;
             }
         }
-        output(highestCostIndex, data);
+        output(highestCostIndex, data); // Outputs result
         
     }catch(error){
-        console.error(error);
+        console.error(error); //Console logs any errors
     }
 }
 
+//Function Retrives lowest cost
 async function getLowestCost(action){
     try{
         const name = document.getElementById("name").value;
-        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);
+        const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);//Retrives data from api
 
         if(!response.ok){
-            throw new Error("Could not fetch resources!");
+            throw new Error("Could not fetch resources!");// Catches Error
         }
 
         const data = await response.json();
         let currentPrice = 10000;
         let highestCostIndex = 0;
         
-        for (let index = 0; index < data.length; index++) {
+        for (let index = 0; index < data.length; index++) {// Loops through data to find lowest cost
             if (data[index].Cost < currentPrice){
                 currentPrice = data[index].Cost;
                 highestCostIndex = index;
             }
         }
-        output(highestCostIndex, data);
+        output(highestCostIndex, data); // Outputs result
         
     }catch(error){
-        console.error(error);
+        console.error(error);//Console logs any errors
     }
 }
 
+//Function outputs the data from api onto users screen
 function output(index,data){
     const element = document.getElementById("div1");
     const consumedQuantity = data[index].ConsumedQuantity;
@@ -136,6 +143,7 @@ function output(index,data){
     element.insertAdjacentHTML("beforeend", `<br>`);
 }
 
+//Burger Dropdown
 $(document).ready(function(){
     //start
     //Burger Menu
