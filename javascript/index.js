@@ -64,7 +64,7 @@ async function fetchNames(action){
 
 
 //Function Retrives highest cost
-async function getHighestCost(action){
+async function getLowestCost(action){
     try{
         const name = document.getElementById("name").value;
         const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);//Retrives data from api
@@ -77,7 +77,7 @@ async function getHighestCost(action){
         let currentPrice = 0;
         let highestCostIndex = 0;
         
-        for (let index = 0; index < data.length; index++) { // Loops through data to find highest cost
+        for (let index = 0; index < data.length; index++) { // Loops through data to find lowest cost
             if (data[index].Cost > currentPrice){
                 currentPrice = data[index].Cost;
                 highestCostIndex = index;
@@ -91,7 +91,7 @@ async function getHighestCost(action){
 }
 
 //Function Retrives lowest cost
-async function getLowestCost(action){
+async function getHighestCost(action){
     try{
         const name = document.getElementById("name").value;
         const response = await fetch(`https://engineering-task.elancoapps.com/api/${action}/${name}`);//Retrives data from api
@@ -104,7 +104,7 @@ async function getLowestCost(action){
         let currentPrice = 10000;
         let highestCostIndex = 0;
         
-        for (let index = 0; index < data.length; index++) {// Loops through data to find lowest cost
+        for (let index = 0; index < data.length; index++) {// Loops through data to find highest cost
             if (data[index].Cost < currentPrice){
                 currentPrice = data[index].Cost;
                 highestCostIndex = index;
