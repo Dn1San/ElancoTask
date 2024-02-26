@@ -27,11 +27,12 @@
             </ul> 
         </nav>
     </header>
-    <button onclick="fetchResources()">Show All Resources</button><br><br>
+    <button onclick="fetchNames('resources')">Show All Resources</button><br><br>
+    <input type="text" id="name" placeholder="Enter Resource Name">
+    <button onclick="fetchData('resources')">Fetch Resource</button><br>
+    <button onclick="getHighestCost('resources')">Highest Cost</button><br><br>
+    <button onclick="getLowestCost('resources')">Lowest Cost</button><br><br>
     <div id="div1"></div>
-    <input type="text" id="resourceName" placeholder="Enter Resource Name">
-    <button onclick="fetchResourceData()">Fetch Resource</button><br>
-    <div id="div2"></div>
 
 </body>
 </html>
